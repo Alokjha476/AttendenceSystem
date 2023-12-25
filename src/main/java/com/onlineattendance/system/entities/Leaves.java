@@ -11,6 +11,8 @@ public class Leaves {
     private Integer leaveId;
     private String days;
     private String reason;
+    @ManyToOne
+    private Employee employee;
 
 
 }

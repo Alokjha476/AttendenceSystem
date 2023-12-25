@@ -11,6 +11,8 @@ public class Attendance {
     private Integer aId;
     private String attend;
     private String absent;
+    @ManyToOne
+    private Employee employee;
 
 
 }

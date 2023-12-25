@@ -10,6 +10,8 @@ public class Department {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer depId;
     private String depName;
+    @OneToOne
+    private Employee employee;
 
 
 

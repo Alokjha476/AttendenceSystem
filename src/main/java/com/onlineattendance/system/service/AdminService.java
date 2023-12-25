@@ -36,26 +36,30 @@ public class AdminService {
     }
 
     // Find by Name
-    public Optional<Employee> findByName(String empName){
-        Optional<Employee> response = employeeRepository.findByName(empName);
-        if (response.isPresent()){
+//    public Optional<Employee> findByName(String empName){
+//        Optional<Employee> response = employeeRepository.findByName(empName);
+//        if (response.isPresent()){
+//            Employee employee = response.get();
+//
+//        }
+//        return
+//
+//    }
+    //Update employee
+    public Employee updateEmployee(EmployeeDto employeeDto) {
+        Optional<Employee> response = findById(employeeDto.getEmpId());
+        if (response.isPresent()) {
             Employee employee = response.get();
+            if (employeeDto.getEmpName() != null && !employeeDto.getEmpName().isEmpty()) {
+                employee.setEmpName(employeeDto.getEmpName());
+            }
+            if (employeeDto.getEmpDept() != null && !employeeDto.getEmpDept().isEmpty()) {
+                employee.setEmpDept(employeeDto.getEmpDept());
+            }
+            else {
+                return employeeRepository.save(employee);
+            }
         }
-        return  employeeRepository.findByName(empName);
-
-
-
+        return null;
     }
-
-
-    // Update employee
-//    public Employee updateEmployee(EmployeeDto employeeDto) {
-//    Optional<Employee> response =findById(employeeDto.getEmpId());
-//    if (response.isPresent()){
-//    Employee employee = response.get();
-//    }
-//
-//
-//    }
-
 }

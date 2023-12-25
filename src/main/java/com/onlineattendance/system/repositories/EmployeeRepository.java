@@ -14,7 +14,7 @@ public interface EmployeeRepository extends JpaRepository<Employee,Integer> {
 
     Optional<Employee> findById(Integer id);
 
-    @Query(value = "select e from Employee e where e.empName =:empName")
-
-    Optional<Employee> findByName(String empName);
+//    @Query(value = "select e from Employee e where e.empName =:empName")
+//
+//    Optional<Employee> findByName(String empName);
 }
