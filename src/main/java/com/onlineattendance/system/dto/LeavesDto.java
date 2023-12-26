@@ -7,4 +7,6 @@ public class LeavesDto {
     private Integer leaveId;
     private String days;
     private String reason;
+    private String startDate;
+    private String lastDate;
 }

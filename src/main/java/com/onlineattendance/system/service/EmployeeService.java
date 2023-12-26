@@ -1,6 +1,7 @@
 package com.onlineattendance.system.service;
 
 import com.onlineattendance.system.dto.EmployeeDto;
+import com.onlineattendance.system.dto.LeavesDto;
 import com.onlineattendance.system.entities.Employee;
 import com.onlineattendance.system.repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,8 @@ import java.util.Optional;
 public class EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
-    private EmployeeService adminService;
-
+    @Autowired
+    private LeavesService leavesService;
 
     // add employee
     public Employee addEmployee(EmployeeDto employeeDto) {
@@ -25,9 +26,14 @@ public class EmployeeService {
         employee.setEmpEmail(employeeDto.getEmpEmail());
         employee.setEmpAddress(employeeDto.getEmpAddress());
         employee.setOthers(employeeDto.getOthers());
-        employee = employeeRepository.saveAndFlush(employee);
+        employee = employeeRepository.save(employee);
         System.out.println(employee);
-
+        if (employeeDto.getLeavesDtos() != null && !employeeDto.getLeavesDtos().isEmpty()) {
+            for (LeavesDto add : employeeDto.getLeavesDtos()
+            ) {
+                leavesService.addLeaves(add, employee);
+            }
+        }
         return employee;
     }
 
@@ -73,14 +79,10 @@ public class EmployeeService {
             if (employeeDto.getOthers() != null && !employeeDto.getOthers().isEmpty()) {
                 employee.setOthers(employeeDto.getOthers());
             }
-
             return employeeRepository.save(employee);
-
         }
         System.out.println("Returned");
         return null;
 
     }
-
-
 }
