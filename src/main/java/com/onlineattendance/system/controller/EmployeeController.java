@@ -22,7 +22,7 @@ public class EmployeeController {
         Employee employees = employeeService.addEmployee(employeeDto);
         return new ResponseEntity<>(employees, HttpStatus.OK);
     }
-    @GetMapping("/employee") // find by Id
+    @GetMapping("/employee") // find by ID
     public ResponseEntity<Object> findById(@RequestParam Integer id){
         Optional<Employee> employees = employeeService.findById(id);
         return new ResponseEntity<>(employees,HttpStatus.OK);

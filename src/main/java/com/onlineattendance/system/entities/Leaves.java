@@ -17,6 +17,9 @@ public class Leaves {
     private Integer leaveId;
     private String days;
     private String reason;
+    private String approve;
+    private String notApprove;
+    private String remark;
     @CreationTimestamp
     private String startDate;
     @LastModifiedDate
