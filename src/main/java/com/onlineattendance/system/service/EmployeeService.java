@@ -1,7 +1,7 @@
 package com.onlineattendance.system.service;
 
 import com.onlineattendance.system.dto.EmployeeDto;
-import com.onlineattendance.system.dto.LeavesDto;
+import com.onlineattendance.system.dto.LeaveDto;
 import com.onlineattendance.system.entities.Employee;
 import com.onlineattendance.system.repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ public class EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
     @Autowired
-    private LeavesService leavesService;
+    private LeaveService leaveService;
 
     // add employee
     public Employee addEmployee(EmployeeDto employeeDto) {
@@ -26,15 +26,10 @@ public class EmployeeService {
         employee.setEmpEmail(employeeDto.getEmpEmail());
         employee.setEmpAddress(employeeDto.getEmpAddress());
         employee.setOthers(employeeDto.getOthers());
-        employee = employeeRepository.save(employee);
-        System.out.println(employee);
-        if (employeeDto.getLeavesDtos() != null && !employeeDto.getLeavesDtos().isEmpty()) {
-            for (LeavesDto add : employeeDto.getLeavesDtos()
-            ) {
-                leavesService.addLeaves(add, employee);
-            }
-        }
-        return employee;
+        System.out.println("Employee Added Successfully:");
+        return employeeRepository.save(employee);
+
+
     }
 
     // get employee
@@ -61,27 +56,35 @@ public class EmployeeService {
         Optional<Employee> response = findById(employeeDto.getEmpId());
         if (response.isPresent()) {
             Employee employee = response.get();
-            if (employeeDto.getEmpName() != null && !employeeDto.getEmpName().isEmpty()) {
-                employee.setEmpName(employeeDto.getEmpName());
-            }
-            if (employeeDto.getEmpDept() != null && !employeeDto.getEmpDept().isEmpty()) {
-                employee.setEmpDept(employeeDto.getEmpDept());
-            }
-            if (employeeDto.getEmpPhone() != null && !employeeDto.getEmpPhone().isEmpty()) {
-                employee.setEmpPhone(employeeDto.getEmpPhone());
-            }
-            if (employeeDto.getEmpEmail() != null && !employeeDto.getEmpEmail().isEmpty()) {
-                employee.setEmpEmail(employeeDto.getEmpEmail());
-            }
-            if (employeeDto.getEmpAddress() != null && !employeeDto.getEmpAddress().isEmpty()) {
-                employee.setEmpAddress(employeeDto.getEmpAddress());
-            }
-            if (employeeDto.getOthers() != null && !employeeDto.getOthers().isEmpty()) {
-                employee.setOthers(employeeDto.getOthers());
-            }
+            employee.setEmpName(employeeDto.getEmpName());
+            employee.setEmpDept(employeeDto.getEmpDept());
+            employee.setEmpPhone(employeeDto.getEmpPhone());
+            employee.setEmpEmail(employeeDto.getEmpEmail());
+            employee.setEmpAddress(employeeDto.getEmpAddress());
+            employee.setOthers(employeeDto.getOthers());
+
+//            if (employeeDto.getEmpName() != null && !employeeDto.getEmpName().isEmpty()) {
+//                employee.setEmpName(employeeDto.getEmpName());
+//            }
+//            if (employeeDto.getEmpDept() != null && !employeeDto.getEmpDept().isEmpty()) {
+//                employee.setEmpDept(employeeDto.getEmpDept());
+//            }
+//            if (employeeDto.getEmpPhone() != null && !employeeDto.getEmpPhone().isEmpty()) {
+//                employee.setEmpPhone(employeeDto.getEmpPhone());
+//            }
+//            if (employeeDto.getEmpEmail() != null && !employeeDto.getEmpEmail().isEmpty()) {
+//                employee.setEmpEmail(employeeDto.getEmpEmail());
+//            }
+//            if (employeeDto.getEmpAddress() != null && !employeeDto.getEmpAddress().isEmpty()) {
+//                employee.setEmpAddress(employeeDto.getEmpAddress());
+//            }
+//            if (employeeDto.getOthers() != null && !employeeDto.getOthers().isEmpty()) {
+//                employee.setOthers(employeeDto.getOthers());
+//            }
+            System.out.println("Employee Updated Successfully:");
             return employeeRepository.save(employee);
         }
-        System.out.println("Returned");
+
         return null;
 
     }
