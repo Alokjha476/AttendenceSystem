@@ -1,17 +1,25 @@
 package com.onlineattendance.system.entities;
 
-import jakarta.persistence.Entity;
-import lombok.Data;
+import jakarta.persistence.*;
+import lombok.*;
 
-//@Entity
+import java.util.List;
+
+@Entity
 @Data
-public class Roles {
+
+public class Role {
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
     private Integer id;
 
     /**
      * Manager, Consultant, HR, Trainer, VP, SSE, SDE etc
      */
     private String roleName;
+
+
+
 
 
 
