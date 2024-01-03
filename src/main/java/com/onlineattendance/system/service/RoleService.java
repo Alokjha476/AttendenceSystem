@@ -9,19 +9,25 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RoleService {
     @Autowired
     private RoleRepository roleRepository;
 
-    public Role AddRole( RoleDto roleDto) {
+    public Role AddRole(RoleDto roleDto) {
         Role empRole = new Role();
         empRole.setRoleName(roleDto.getRoleName());
         return roleRepository.save(empRole);
     }
-    public List<Role> findAllRoles(){
+
+    public List<Role> findAllRoles() {
         return roleRepository.findAll();
+    }
+
+    public Optional<Role> findById(Integer id) {
+        return roleRepository.findById(id);
     }
 
 

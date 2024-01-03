@@ -22,26 +22,37 @@ public class EmployeeController {
         Employee employees = employeeService.addEmployee(employeeDto);
         return new ResponseEntity<>(employees, HttpStatus.OK);
     }
+
     @GetMapping("/employee") // find by ID
-    public ResponseEntity<Object> findById(@RequestParam Integer id){
+    public ResponseEntity<Object> findById(@RequestParam Integer id) {
         Optional<Employee> employees = employeeService.findById(id);
-        return new ResponseEntity<>(employees,HttpStatus.OK);
+        return new ResponseEntity<>(employees, HttpStatus.OK);
     }
+
     @GetMapping("/employee/all")// find all employ ee
-    public ResponseEntity<Object> findAllEmp(){
+    public ResponseEntity<Object> findAllEmp() {
         List<Employee> employees = employeeService.findAllEmployee();
-        return new ResponseEntity<>(employees,HttpStatus.OK);
+        return new ResponseEntity<>(employees, HttpStatus.OK);
     }
+
     //    @GetMapping("/employeeByName")
 //    public ResponseEntity<Object> findByName(@RequestParam String empName){
 //        Optional<Employee> employees = adminService.findByName(empName);
 //        return  new ResponseEntity<>(employees,HttpStatus.OK);
 //    }
     @PutMapping("/employee")
-    public ResponseEntity<Object> updateEmployee(@RequestBody EmployeeDto employeeDto){
-        Employee employee =employeeService.updateEmployee(employeeDto);
+    public ResponseEntity<Object> updateEmployee(@RequestBody EmployeeDto employeeDto) {
+        Employee employee = employeeService.updateEmployee(employeeDto);
         return new ResponseEntity<>(employee, HttpStatus.OK);
     }
 
+    @GetMapping("/employeeByName")
+    public ResponseEntity<Object> findByName(@RequestParam String empName) {
+        Optional<Employee> employee = employeeService.findByName(empName);
+        if (employee.isPresent()) {
+            return new ResponseEntity<>(employee, HttpStatus.OK);
+        }
+        return new ResponseEntity<>("Employee does not exist:", HttpStatus.OK);
+     }
 }
 

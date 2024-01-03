@@ -1,7 +1,6 @@
 package com.onlineattendance.system.service;
 
 import com.onlineattendance.system.dto.EmployeeDto;
-import com.onlineattendance.system.dto.LeaveDto;
 import com.onlineattendance.system.entities.Employee;
 import com.onlineattendance.system.repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,6 +85,11 @@ public class EmployeeService {
         }
 
         return null;
+
+    }
+    public Optional<Employee> findByName(String empName){
+        return employeeRepository.findByName(empName);
+
 
     }
 }
