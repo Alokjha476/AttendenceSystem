@@ -36,6 +36,7 @@ public class LeaveService {
             totalTime = 8 * (period.getDays() + 1);
         }
         employeeLeave.setTimeDuration(totalTime);
+
         employeeLeave.setEmployee(employee);
         return leavesRepository.save(employeeLeave);
     }
