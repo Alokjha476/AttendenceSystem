@@ -13,6 +13,7 @@ import java.time.Period;
 public class LeaveService {
     @Autowired
     private LeavesRepository leavesRepository;
+
     public EmployeeLeave addLeaves(LeaveDto leaveDto, Employee employee) {
         EmployeeLeave employeeLeave = new EmployeeLeave();
         /*try {
@@ -22,7 +23,7 @@ public class LeaveService {
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }*/
-        employeeLeave.setLeaveType(leaveDto.getLeaveType());
+        employeeLeave.setLeaveTypes(leaveDto.getLeaveType());
         employeeLeave.setLeaveStatus(leaveDto.getLeaveStatus());
         employeeLeave.setReason(leaveDto.getReason());
         employeeLeave.setRemark(leaveDto.getRemark());
@@ -34,6 +35,13 @@ public class LeaveService {
         } else {
             Period period = Period.between(leaveDto.getFromDate(), leaveDto.getToDate());
             totalTime = 8 * (period.getDays() + 1);
+        }
+        if (leaveDto.getLeaveType() != null && !leaveDto.getLeaveType().isEmpty()) {
+            totalTime = 8;
+        } else {
+            Period period = Period.between(leaveDto.getFromDate(), leaveDto.getToDate());
+            totalTime = 8 * (period.getDays() + 9);
+            System.out.println("Casual Leave");
         }
         employeeLeave.setTimeDuration(totalTime);
 
