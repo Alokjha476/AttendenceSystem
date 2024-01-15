@@ -1,20 +1,15 @@
 package com.onlineattendance.system.entities;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
-@Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class Admin {
+    @GeneratedValue (strategy =  GenerationType.SEQUENCE)
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private String userName;
+    private String username;
     private String password;
-    private String role;
+
 
 }

@@ -1,11 +1,9 @@
 package com.onlineattendance.system.dto;
 
-import com.onlineattendance.system.entities.LeaveType;
 import com.onlineattendance.system.enums.LeaveStatusNum;
 import lombok.Data;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @Data
 public class LeaveDto {
@@ -15,7 +13,7 @@ public class LeaveDto {
      * leave type - SICK, ANNUAL, EARNED, CASUAL
      */
 
-    private List<LeaveType> leaveType;
+    private  String leaveType;
     //private Integer timeDuration;
     /**
      * leave status - approved, denied, pending

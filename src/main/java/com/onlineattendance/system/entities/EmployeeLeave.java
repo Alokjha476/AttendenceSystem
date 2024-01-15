@@ -3,14 +3,11 @@ package com.onlineattendance.system.entities;
 import com.onlineattendance.system.enums.LeaveStatusNum;
 import jakarta.persistence.*;
 import lombok.Data;
-import org.apache.catalina.LifecycleState;
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 @Data
@@ -21,8 +18,7 @@ public class EmployeeLeave {
     /**
      * leave type - SICK, ANNUAL, EARNED, CASUAL
      */
-    @OneToMany
-    private List<LeaveType> leaveTypes;
+    private String leaveTypes;
 
     private Integer timeDuration;
     private String reason;

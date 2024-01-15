@@ -36,13 +36,7 @@ public class LeaveService {
             Period period = Period.between(leaveDto.getFromDate(), leaveDto.getToDate());
             totalTime = 8 * (period.getDays() + 1);
         }
-        if (leaveDto.getLeaveType() != null && !leaveDto.getLeaveType().isEmpty()) {
-            totalTime = 8;
-        } else {
-            Period period = Period.between(leaveDto.getFromDate(), leaveDto.getToDate());
-            totalTime = 8 * (period.getDays() + 9);
-            System.out.println("Casual Leave");
-        }
+
         employeeLeave.setTimeDuration(totalTime);
 
         employeeLeave.setEmployee(employee);
