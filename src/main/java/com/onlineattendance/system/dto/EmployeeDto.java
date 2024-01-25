@@ -1,5 +1,6 @@
 package com.onlineattendance.system.dto;
 
+import com.onlineattendance.system.enums.EmployeeBranch;
 import lombok.Data;
 
 import java.util.List;
@@ -13,4 +14,5 @@ public class EmployeeDto {
     private String empPhone;
     private String empEmail;
     private String Others;
+    private EmployeeBranch employeeBranch;
 }

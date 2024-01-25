@@ -3,6 +3,7 @@ package com.onlineattendance.system.controller;
 
 import com.onlineattendance.system.dto.EmployeeDto;
 import com.onlineattendance.system.entities.Employee;
+import com.onlineattendance.system.enums.EmployeeBranch;
 import com.onlineattendance.system.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

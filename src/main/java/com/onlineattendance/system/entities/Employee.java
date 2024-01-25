@@ -1,9 +1,7 @@
 package com.onlineattendance.system.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.onlineattendance.system.enums.EmployeeBranch;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
@@ -18,6 +16,9 @@ public class Employee {
     private String empPhone;
     private String empEmail;
     private String Others;
+
+    @Enumerated(value = EnumType.STRING)
+    private EmployeeBranch employeeBranch;
    // @OneToOne
    // private Roles roles;
 

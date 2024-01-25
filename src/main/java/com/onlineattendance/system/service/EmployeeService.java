@@ -13,13 +13,13 @@ import java.util.Optional;
 public class EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
-    @Autowired
-    private LeaveService leaveService;
+
 
     // add employee
     public Employee addEmployee(EmployeeDto employeeDto) {
         Employee employee = new Employee();
         employee.setEmpName(employeeDto.getEmpName());
+        employee.setEmployeeBranch(employeeDto.getEmployeeBranch());
         employee.setEmpDept(employeeDto.getEmpDept());
         employee.setEmpPhone(employeeDto.getEmpPhone());
         employee.setEmpEmail(employeeDto.getEmpEmail());
@@ -56,6 +56,7 @@ public class EmployeeService {
         if (response.isPresent()) {
             Employee employee = response.get();
             employee.setEmpName(employeeDto.getEmpName());
+            employee.setEmployeeBranch(employeeDto.getEmployeeBranch());
             employee.setEmpDept(employeeDto.getEmpDept());
             employee.setEmpPhone(employeeDto.getEmpPhone());
             employee.setEmpEmail(employeeDto.getEmpEmail());
