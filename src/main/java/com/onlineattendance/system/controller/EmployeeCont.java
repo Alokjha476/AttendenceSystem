@@ -3,7 +3,6 @@ package com.onlineattendance.system.controller;
 
 import com.onlineattendance.system.dto.EmployeeDto;
 import com.onlineattendance.system.entities.Employee;
-import com.onlineattendance.system.enums.EmployeeBranch;
 import com.onlineattendance.system.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-public class EmployeeController {
+public class EmployeeCont {
     @Autowired
     public EmployeeService employeeService;
 

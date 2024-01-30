@@ -19,7 +19,7 @@ public class EmployeeService {
     public Employee addEmployee(EmployeeDto employeeDto) {
         Employee employee = new Employee();
         employee.setEmpName(employeeDto.getEmpName());
-        employee.setEmployeeBranch(employeeDto.getEmployeeBranch());
+        employee.setEmployeeBranchEnum(employeeDto.getEmployeeBranchEnum());
         employee.setEmpDept(employeeDto.getEmpDept());
         employee.setEmpPhone(employeeDto.getEmpPhone());
         employee.setEmpEmail(employeeDto.getEmpEmail());
@@ -56,7 +56,7 @@ public class EmployeeService {
         if (response.isPresent()) {
             Employee employee = response.get();
             employee.setEmpName(employeeDto.getEmpName());
-            employee.setEmployeeBranch(employeeDto.getEmployeeBranch());
+            employee.setEmployeeBranchEnum(employeeDto.getEmployeeBranchEnum());
             employee.setEmpDept(employeeDto.getEmpDept());
             employee.setEmpPhone(employeeDto.getEmpPhone());
             employee.setEmpEmail(employeeDto.getEmpEmail());

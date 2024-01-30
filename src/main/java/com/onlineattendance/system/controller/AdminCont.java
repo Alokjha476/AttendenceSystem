@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class AdminController {
+public class AdminCont {
     @Autowired
     private AdminService adminService;
     @PostMapping("/Add-Employee")

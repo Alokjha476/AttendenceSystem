@@ -1,6 +1,6 @@
 package com.onlineattendance.system.entities;
 
-import com.onlineattendance.system.enums.EmployeeBranch;
+import com.onlineattendance.system.enums.EmployeeBranchEnum;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -18,7 +18,7 @@ public class Employee {
     private String Others;
 
     @Enumerated(value = EnumType.STRING)
-    private EmployeeBranch employeeBranch;
+    private EmployeeBranchEnum employeeBranchEnum;
    // @OneToOne
    // private Roles roles;
 

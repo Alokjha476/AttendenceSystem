@@ -1,6 +1,6 @@
 package com.onlineattendance.system.dto;
 
-import com.onlineattendance.system.enums.LeaveStatusNum;
+import com.onlineattendance.system.enums.LeaveStatusEnum;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -14,11 +14,11 @@ public class LeaveDto {
      */
 
     private  String leaveType;
-    //private Integer timeDuration;
+
     /**
      * leave status - approved, denied, pending
      */
-    private LeaveStatusNum leaveStatus;
+    private LeaveStatusEnum leaveStatus;
     private String remark;
     private LocalDate fromDate;
     private LocalDate toDate;

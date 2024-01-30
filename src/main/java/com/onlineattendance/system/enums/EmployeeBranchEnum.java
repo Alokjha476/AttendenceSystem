@@ -1,6 +1,6 @@
 package com.onlineattendance.system.enums;
 
-public enum EmployeeBranch {
+public enum EmployeeBranchEnum {
 
    GURUGRAM,RAIPUR,BHOPAL;
 }

@@ -1,6 +1,6 @@
 package com.onlineattendance.system.entities;
 
-import com.onlineattendance.system.enums.LeaveStatusNum;
+import com.onlineattendance.system.enums.LeaveStatusEnum;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
@@ -26,7 +26,7 @@ public class EmployeeLeave {
      * leave status - approved, denied, pending
      */
     @Enumerated(value = EnumType.STRING)
-    private LeaveStatusNum leaveStatus;
+    private LeaveStatusEnum leaveStatus;
     private String remark;
     private LocalDate fromDate;
     private LocalDate toDate;
