@@ -11,6 +11,6 @@ public class EmployeeDto {
     private String empAddress;
     private String empPhone;
     private String empEmail;
-    private String Others;
+  //  private String Others;
     private EmployeeBranchEnum employeeBranchEnum;
 }

@@ -2,6 +2,7 @@ package com.onlineattendance.system.entities;
 
 import com.onlineattendance.system.enums.EmployeeBranchEnum;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Entity
@@ -15,12 +16,11 @@ public class Employee {
     private String empAddress;
     private String empPhone;
     private String empEmail;
-    private String Others;
+   // private String Others;
 
-    @Enumerated(value = EnumType.STRING)
-    private EmployeeBranchEnum employeeBranchEnum;
-   // @OneToOne
-   // private Roles roles;
+//    @Enumerated(value = EnumType.STRING)
+//    private EmployeeBranchEnum employeeBranchEnum;
+
 
 
 }

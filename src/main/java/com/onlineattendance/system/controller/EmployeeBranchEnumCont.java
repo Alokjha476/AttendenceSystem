@@ -1,11 +1,8 @@
 package com.onlineattendance.system.controller;
 
-import com.onlineattendance.system.dto.EmployeeDto;
-import com.onlineattendance.system.entities.Employee;
 import com.onlineattendance.system.enums.EmployeeBranchEnum;
 import com.onlineattendance.system.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +24,8 @@ public class EmployeeBranchEnumCont {
 //        System.out.println("Branch mapping running :");
 //        return employeeBranchEnum.name();
 //    }
+
+    // OR
    @GetMapping
     public ResponseEntity<Object> getByBranch(@RequestParam(required = false)
                                               EmployeeBranchEnum employeeBranchEnum){

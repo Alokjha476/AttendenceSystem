@@ -19,12 +19,12 @@ public class EmployeeService {
     public Employee addEmployee(EmployeeDto employeeDto) {
         Employee employee = new Employee();
         employee.setEmpName(employeeDto.getEmpName());
-        employee.setEmployeeBranchEnum(employeeDto.getEmployeeBranchEnum());
+     //   employee.setEmployeeBranchEnum(employeeDto.getEmployeeBranchEnum());
         employee.setEmpDept(employeeDto.getEmpDept());
         employee.setEmpPhone(employeeDto.getEmpPhone());
         employee.setEmpEmail(employeeDto.getEmpEmail());
         employee.setEmpAddress(employeeDto.getEmpAddress());
-        employee.setOthers(employeeDto.getOthers());
+      //  employee.setOthers(employeeDto.getOthers());
         System.out.println("Employee Added Successfully:");
         return employeeRepository.save(employee);
 
@@ -56,12 +56,12 @@ public class EmployeeService {
         if (response.isPresent()) {
             Employee employee = response.get();
             employee.setEmpName(employeeDto.getEmpName());
-            employee.setEmployeeBranchEnum(employeeDto.getEmployeeBranchEnum());
+         //   employee.setEmployeeBranchEnum(employeeDto.getEmployeeBranchEnum());
             employee.setEmpDept(employeeDto.getEmpDept());
             employee.setEmpPhone(employeeDto.getEmpPhone());
             employee.setEmpEmail(employeeDto.getEmpEmail());
             employee.setEmpAddress(employeeDto.getEmpAddress());
-            employee.setOthers(employeeDto.getOthers());
+         //   employee.setOthers(employeeDto.getOthers());
 
 //            if (employeeDto.getEmpName() != null && !employeeDto.getEmpName().isEmpty()) {
 //                employee.setEmpName(employeeDto.getEmpName());
