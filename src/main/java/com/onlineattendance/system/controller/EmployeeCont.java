@@ -13,10 +13,11 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+
 public class EmployeeCont {
     @Autowired
     public EmployeeService employeeService;
-
+    @CrossOrigin(origins = "http://localhost:5173/")
     @PostMapping("/employee") // for add
     public ResponseEntity<Object> addEmployee(@RequestBody EmployeeDto employeeDto) {
         Employee employees = employeeService.addEmployee(employeeDto);
@@ -28,7 +29,7 @@ public class EmployeeCont {
         Optional<Employee> employees = employeeService.findById(id);
         return new ResponseEntity<>(employees, HttpStatus.OK);
     }
-
+    @CrossOrigin(origins = "http://localhost:5173/")
     @GetMapping("/employee/all")// find all employ ee
     public ResponseEntity<Object> findAllEmp() {
         List<Employee> employees = employeeService.findAllEmployee();

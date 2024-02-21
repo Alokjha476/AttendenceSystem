@@ -59,5 +59,12 @@ public class ImageDataController {
 
     }
 
+    @DeleteMapping("/delete")
+    public ResponseEntity<Object> deleteById(@RequestParam Long id) {
+        imageDataService.deleteImage(id);
+        return ResponseEntity.accepted().body("image deleted");
+
+    }
+
 
 }

@@ -19,12 +19,12 @@ public class EmployeeService {
     public Employee addEmployee(EmployeeDto employeeDto) {
         Employee employee = new Employee();
         employee.setEmpName(employeeDto.getEmpName());
-     //   employee.setEmployeeBranchEnum(employeeDto.getEmployeeBranchEnum());
+       // employee.setEmployeeBranchEnum(employeeDto.getEmployeeBranchEnum());
         employee.setEmpDept(employeeDto.getEmpDept());
         employee.setEmpPhone(employeeDto.getEmpPhone());
         employee.setEmpEmail(employeeDto.getEmpEmail());
         employee.setEmpAddress(employeeDto.getEmpAddress());
-      //  employee.setOthers(employeeDto.getOthers());
+        //  employee.setOthers(employeeDto.getOthers());
         System.out.println("Employee Added Successfully:");
         return employeeRepository.save(employee);
 
@@ -40,28 +40,19 @@ public class EmployeeService {
         return employeeRepository.findById(id);
     }
 
-    // Find by Name
-//    public Optional<Employee> findByName(String empName){
-//        Optional<Employee> response = employeeRepository.findByName(empName);
-//        if (response.isPresent()){
-//            Employee employee = response.get();
-//
-//        }
-//        return
-//
-//    }
+
     //Update employee
     public Employee updateEmployee(EmployeeDto employeeDto) {
         Optional<Employee> response = findById(employeeDto.getEmpId());
         if (response.isPresent()) {
             Employee employee = response.get();
             employee.setEmpName(employeeDto.getEmpName());
-         //   employee.setEmployeeBranchEnum(employeeDto.getEmployeeBranchEnum());
+          //  employee.setEmployeeBranchEnum(employeeDto.getEmployeeBranchEnum());
             employee.setEmpDept(employeeDto.getEmpDept());
             employee.setEmpPhone(employeeDto.getEmpPhone());
             employee.setEmpEmail(employeeDto.getEmpEmail());
             employee.setEmpAddress(employeeDto.getEmpAddress());
-         //   employee.setOthers(employeeDto.getOthers());
+            //   employee.setOthers(employeeDto.getOthers());
 
 //            if (employeeDto.getEmpName() != null && !employeeDto.getEmpName().isEmpty()) {
 //                employee.setEmpName(employeeDto.getEmpName());
@@ -88,7 +79,8 @@ public class EmployeeService {
         return null;
 
     }
-    public Optional<Employee> findByName(String empName){
+
+    public Optional<Employee> findByName(String empName) {
         return employeeRepository.findByName(empName);
 
 

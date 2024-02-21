@@ -17,7 +17,7 @@ public class Employee {
     private String empPhone;
     private String empEmail;
    // private String Others;
-
+//
 //    @Enumerated(value = EnumType.STRING)
 //    private EmployeeBranchEnum employeeBranchEnum;
 
