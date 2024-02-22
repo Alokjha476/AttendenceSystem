@@ -47,7 +47,7 @@ public class EmployeeService {
         if (response.isPresent()) {
             Employee employee = response.get();
             employee.setEmpName(employeeDto.getEmpName());
-          //  employee.setEmployeeBranchEnum(employeeDto.getEmployeeBranchEnum());
+          employee.setEmployeeBranchEnum(employeeDto.getEmployeeBranchEnum());
             employee.setEmpDept(employeeDto.getEmpDept());
             employee.setEmpPhone(employeeDto.getEmpPhone());
             employee.setEmpEmail(employeeDto.getEmpEmail());

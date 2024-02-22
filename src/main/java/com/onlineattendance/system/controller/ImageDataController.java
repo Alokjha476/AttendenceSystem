@@ -17,31 +17,11 @@ public class ImageDataController {
     private ImageDataService imageDataService;
 
     @PostMapping("/upload")
-    public ResponseEntity<Object> uploadImage(@RequestParam("image") MultipartFile multipartFile) {
-        System.out.println(multipartFile.getContentType());
-        System.out.println(multipartFile.getName());
-        System.out.println(multipartFile.getOriginalFilename());
-        System.out.println(multipartFile.getSize());
-        System.out.println(multipartFile.isEmpty());
-//        ImageData response = null;
-//        try {
-//            if (!multipartFile.getContentType().equals("image/jpeg")) {
-//                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Type should be jpg");
-//
-//            }
-//            if (multipartFile.isEmpty()) {
-//                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("File is empty");
-//            }
-//
-//            response = this.imageDataService.uploadImage(multipartFile);
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            System.out.println("Error image not saved");
-//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
-//        }
-        System.out.println("Image Saved");
-        return ResponseEntity.status(HttpStatus.OK).body("Image successfully uploaded");
+    public ResponseEntity<Object> attacheImage(@RequestParam("image") MultipartFile multipartFile) throws Exception {
+
+            byte[] bytes = imageDataService.uploadImage(multipartFile).getImageData();
+            return new ResponseEntity<>("Image saved", HttpStatus.OK);
+
     }
 
     @GetMapping("/{ImageInfoByName}")
@@ -55,15 +35,12 @@ public class ImageDataController {
     public ResponseEntity<Object> getImageByName(@PathVariable("name") String name) {
         byte[] imageData = imageDataService.getImage(name);
         return ResponseEntity.status(HttpStatus.OK).body(imageData);
-
-
     }
 
     @DeleteMapping("/delete")
     public ResponseEntity<Object> deleteById(@RequestParam Long id) {
         imageDataService.deleteImage(id);
         return ResponseEntity.accepted().body("image deleted");
-
     }
 
 

@@ -18,7 +18,11 @@ public class ImageDataService {
 
     //Upload Image
     public ImageData uploadImage(MultipartFile multipartFile) throws Exception {
-        imageDataRepository.save(ImageData.builder().name(multipartFile.getOriginalFilename()).type(multipartFile.getContentType()).imageData(ImageUtil.compressImage(multipartFile.getBytes())).build());
+        imageDataRepository.save(ImageData.builder().
+                name(multipartFile.getOriginalFilename()).
+                type(multipartFile.getContentType()).
+                imageData(ImageUtil.compressImage(multipartFile.getBytes())).
+                build());
 
         return new ImageData("image data uploaded successfully" + multipartFile.getOriginalFilename());
     }

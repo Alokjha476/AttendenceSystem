@@ -18,8 +18,8 @@ public class Employee {
     private String empEmail;
    // private String Others;
 //
-//    @Enumerated(value = EnumType.STRING)
-//    private EmployeeBranchEnum employeeBranchEnum;
+    @Enumerated(value = EnumType.STRING)
+    private EmployeeBranchEnum employeeBranchEnum;
 
 
 
