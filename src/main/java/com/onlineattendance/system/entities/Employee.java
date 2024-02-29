@@ -4,9 +4,13 @@ import com.onlineattendance.system.enums.EmployeeBranchEnum;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
+import org.hibernate.mapping.Value;
 
-@Entity
+import java.lang.annotation.Target;
+
+
 @Data
+@Entity
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -47,37 +47,15 @@ public class EmployeeService {
         if (response.isPresent()) {
             Employee employee = response.get();
             employee.setEmpName(employeeDto.getEmpName());
-          employee.setEmployeeBranchEnum(employeeDto.getEmployeeBranchEnum());
+            employee.setEmployeeBranchEnum(employeeDto.getEmployeeBranchEnum());
             employee.setEmpDept(employeeDto.getEmpDept());
             employee.setEmpPhone(employeeDto.getEmpPhone());
             employee.setEmpEmail(employeeDto.getEmpEmail());
             employee.setEmpAddress(employeeDto.getEmpAddress());
-            //   employee.setOthers(employeeDto.getOthers());
-
-//            if (employeeDto.getEmpName() != null && !employeeDto.getEmpName().isEmpty()) {
-//                employee.setEmpName(employeeDto.getEmpName());
-//            }
-//            if (employeeDto.getEmpDept() != null && !employeeDto.getEmpDept().isEmpty()) {
-//                employee.setEmpDept(employeeDto.getEmpDept());
-//            }
-//            if (employeeDto.getEmpPhone() != null && !employeeDto.getEmpPhone().isEmpty()) {
-//                employee.setEmpPhone(employeeDto.getEmpPhone());
-//            }
-//            if (employeeDto.getEmpEmail() != null && !employeeDto.getEmpEmail().isEmpty()) {
-//                employee.setEmpEmail(employeeDto.getEmpEmail());
-//            }
-//            if (employeeDto.getEmpAddress() != null && !employeeDto.getEmpAddress().isEmpty()) {
-//                employee.setEmpAddress(employeeDto.getEmpAddress());
-//            }
-//            if (employeeDto.getOthers() != null && !employeeDto.getOthers().isEmpty()) {
-//                employee.setOthers(employeeDto.getOthers());
-//            }
             System.out.println("Employee Updated Successfully:");
             return employeeRepository.save(employee);
         }
-
         return null;
-
     }
 
     public Optional<Employee> findByName(String empName) {
