@@ -27,7 +27,7 @@ public class LeaveController {
         Optional<Employee> employeeOps = employeeService.findById(empId);
         if (employeeOps.isPresent()) {
             Employee employee = employeeOps.get();
-            EmployeeLeave employeeLeave = leaveService.addLeaves(leaveDto, employee);
+            EmployeeLeave employeeLeave = leaveService.addLeaves(leaveDto,employee);
             return new ResponseEntity<>(employeeLeave, HttpStatus.OK);
         }
         return new ResponseEntity<>("Employee not Present :", HttpStatus.BAD_REQUEST);

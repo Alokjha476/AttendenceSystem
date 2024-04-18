@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/image")
@@ -17,11 +19,9 @@ public class ImageDataController {
     private ImageDataService imageDataService;
 
     @PostMapping("/upload")
-    public ResponseEntity<Object> attacheImage(@RequestParam("image") MultipartFile multipartFile) throws Exception {
-
-            byte[] bytes = imageDataService.uploadImage(multipartFile).getImageData();
-            return new ResponseEntity<>("Image saved", HttpStatus.OK);
-
+    public ResponseEntity<Object> attacheImage(@RequestParam("image") MultipartFile file) throws Exception {
+        String uploadImage = imageDataService.uploadImage(file);
+        return ResponseEntity.status(HttpStatus.OK).body("image uploaded");
     }
 
     @GetMapping("/{ImageInfoByName}")

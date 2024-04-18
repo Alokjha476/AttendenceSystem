@@ -17,14 +17,14 @@ public class ImageDataService {
     private ImageDataRepository imageDataRepository;
 
     //Upload Image
-    public ImageData uploadImage(MultipartFile multipartFile) throws Exception {
+    public String uploadImage(MultipartFile image) throws Exception {
         imageDataRepository.save(ImageData.builder().
-                name(multipartFile.getOriginalFilename()).
-                type(multipartFile.getContentType()).
-                imageData(ImageUtil.compressImage(multipartFile.getBytes())).
+                name(image.getOriginalFilename()).
+                type(image.getContentType()).
+                imageData(ImageUtil.compressImage(image.getBytes())).
                 build());
 
-        return new ImageData("image data uploaded successfully" + multipartFile.getOriginalFilename());
+        return "Image uploaded " + image.getOriginalFilename();
     }
     // Get by name Image
     @Transactional
@@ -36,8 +36,7 @@ public class ImageDataService {
     @Transactional
     public byte[] getImage(String name) {
         Optional<ImageData> dbImage = imageDataRepository.findByName(name);
-        byte[] image = ImageUtil.compressImage(dbImage.get().getImageData());
-        return image;
+        return ImageUtil.compressImage(dbImage.get().getImageData());
     }
     public void deleteImage(Long id) {
         imageDataRepository.deleteById(id);
