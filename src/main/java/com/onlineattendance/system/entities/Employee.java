@@ -14,6 +14,8 @@ import java.lang.annotation.Target;
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+
+
     private Integer empId;
     private String empName;
     private String empDept;

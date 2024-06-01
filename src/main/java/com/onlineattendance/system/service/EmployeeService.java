@@ -1,6 +1,7 @@
 package com.onlineattendance.system.service;
 
 import com.onlineattendance.system.dto.EmployeeDto;
+import com.onlineattendance.system.dto.EmployeeResponseDto;
 import com.onlineattendance.system.entities.Employee;
 import com.onlineattendance.system.repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ public class EmployeeService {
     public Employee addEmployee(EmployeeDto employeeDto) {
         Employee employee = new Employee();
         employee.setEmpName(employeeDto.getEmpName());
-       // employee.setEmployeeBranchEnum(employeeDto.getEmployeeBranchEnum());
+        // employee.setEmployeeBranchEnum(employeeDto.getEmployeeBranchEnum());
         employee.setEmpDept(employeeDto.getEmpDept());
         employee.setEmpPhone(employeeDto.getEmpPhone());
         employee.setEmpEmail(employeeDto.getEmpEmail());
@@ -61,6 +62,17 @@ public class EmployeeService {
     public Optional<Employee> findByName(String empName) {
         return employeeRepository.findByName(empName);
 
-
     }
+    public EmployeeResponseDto getSomeDetails(Integer empId) {
+        Employee employee = employeeRepository.
+                findById(empId).orElseThrow(() -> new RuntimeException("Id not found"));
+        EmployeeResponseDto employeeResponseDto = new EmployeeResponseDto();
+        employeeResponseDto.setEmpName(employee.getEmpName());
+        employeeResponseDto.setEmpAddress(employee.getEmpAddress());
+        employeeResponseDto.setEmpDept(employee.getEmpDept());
+        employeeResponseDto.setEmpPhone(employee.getEmpPhone());
+        employeeResponseDto.setEmployeeBranchEnum(employee.getEmployeeBranchEnum());
+        return employeeResponseDto;
+    }
+
 }
